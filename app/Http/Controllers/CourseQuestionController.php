@@ -51,7 +51,7 @@ class CourseQuestionController extends Controller
 
         try {
 
-            $question = $course->question()->create([
+            $question = $course->questions()->create([
                 'question' => $request->question,
             ]);
 
