@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Models\CourseStudent;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 
 class CourseStudentController extends Controller
 {
@@ -35,6 +37,16 @@ class CourseStudentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'email' => 'required|string',
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+        if(!$user){
+            $error = ValidationException::withMessages([
+                'system_error' => ['Email student tidak tersedia'],
+            ]);
+        }
     }
 
     /**

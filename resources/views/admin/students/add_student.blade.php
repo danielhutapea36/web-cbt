@@ -199,23 +199,26 @@
                     </div>
                 </div>
             </div>
-            <form id="add-question" class="mx-[70px] mt-[30px] flex flex-col gap-5">
+            <form action="{{route('dashboard.course.course_students.store', $course)}}" id="add-student" class="mx-[70px] mt-[30px] flex flex-col gap-5" method="POST">
                 @csrf
                 <h2 class="font-bold text-2xl">Add New Student</h2>
                 <div class="flex flex-col gap-[10px]">
                     <p class="font-semibold">Email Address</p>
                     <div
-                        class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] focus-within:border-2 focus-within:border-[#0A090B]">
+                        class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] 
+                        focus-within:border-2 focus-within:border-[#0A090B]">
                         <div class="mr-[14px] w-6 h-6 flex items-center justify-center overflow-hidden">
-                            <img src="{{asset('images/icons/sms.svg')}}" class="h-full w-full object-contain" alt="icon">
+                            <img src="{{asset('images/icons/ic_email.svg')}}" class="h-full w-full object-contain" 
+                            alt="icon">
                         </div>
                         <input type="text"
                             class="font-semibold placeholder:text-[#7F8190] placeholder:font-normal w-full outline-none"
                             placeholder="Write student email address" name="email">
                     </div>
                 </div>
-                <a href="#"
-                    class="w-[500px] h-[52px] p-[14px_20px] bg-[#6436F1] rounded-full font-bold text-white transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center">Add
+                <a href="course-details.html"
+                    class="w-[500px] h-[52px] p-[14px_20px] bg-[#6436F1] rounded-full font-bold text-white 
+                    transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center">Add
                     Student</a>
             </form>
         </div>
