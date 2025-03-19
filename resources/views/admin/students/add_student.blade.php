@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="{{asset('css/output.css')}}" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
@@ -199,6 +200,17 @@
                     </div>
                 </div>
             </div>
+
+            @if ($errors->any())
+                <ul> 
+                    @foreach ($errors->all() as $error)
+                        <li class="py-5 px-5 bg-red-700 text-white">
+                            {{$error}}
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
+
             <form action="{{route('dashboard.course.course_students.store', $course)}}" id="add-student" class="mx-[70px] mt-[30px] flex flex-col gap-5" method="POST">
                 @csrf
                 <h2 class="font-bold text-2xl">Add New Student</h2>
@@ -208,7 +220,7 @@
                         class="flex items-center w-[500px] h-[52px] p-[14px_16px] rounded-full border border-[#EEEEEE] 
                         focus-within:border-2 focus-within:border-[#0A090B]">
                         <div class="mr-[14px] w-6 h-6 flex items-center justify-center overflow-hidden">
-                            <img src="{{asset('images/icons/ic_email.svg')}}" class="h-full w-full object-contain" 
+                            <img src="{{asset('images/icons/sms.svg')}}" class="h-full w-full object-contain" 
                             alt="icon">
                         </div>
                         <input type="text"
@@ -216,10 +228,10 @@
                             placeholder="Write student email address" name="email">
                     </div>
                 </div>
-                <a href="course-details.html"
+                <button type="submit"
                     class="w-[500px] h-[52px] p-[14px_20px] bg-[#6436F1] rounded-full font-bold text-white 
                     transition-all duration-300 hover:shadow-[0_4px_15px_0_#6436F14D] text-center">Add
-                    Student</a>
+                    Student</button>
             </form>
         </div>
     </section>
